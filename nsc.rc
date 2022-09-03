@@ -1,0 +1,4 @@
+export NSC_NO_GIT_IGNORE=true
+export NKEYS_PATH=./nsc/keys
+export NSC_HOME=./nsc/config
+nsc env -s ./nsc/store
