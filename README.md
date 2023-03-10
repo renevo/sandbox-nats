@@ -16,9 +16,9 @@ nsc generate config --nats-resolver --sys-account SYS > ./conf/resolver.conf
 
 Modify the `./conf/resolver.conf` to:
 
-* set `resolver { dir = "./data/jwt" }` instead of `resover { dir = "./jwt" }`
+* set `resolver { dir = "./data/jwt" }` instead of `resolver { dir = "./jwt" }`
 
-Modify teh `./conf/nats.conf` to:
+Modify the `./conf/nats.conf` to:
 
 * append with `include resolver.conf`
 
@@ -49,13 +49,11 @@ nats context select "${NATS_ENV_NAME}-admin"
 nats server ls
 ```
 
-## Use raw NKEY/JWT
+## Use Credentials File
 
 Get the values from the `./keys/creds/${NATS_ENV_NAME}/${NATS_USER_ACCOUNT_NAME}/${NATS_USER_NAME}.creds`.
 
 Open up `main.go` and 
 
-* replace `jwt` string value with the JWT from the file.
-* replace `seed` string value with the user nkey seed from the file.
+* Set the `UserCredentials` to the correct path.
 
-Idealistically these two values would be pulled from vault, and not from a const.
